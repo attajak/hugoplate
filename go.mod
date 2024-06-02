@@ -1,4 +1,4 @@
-module hugoplate.netlify.app
+module github.com/attajak/hugoplate
 
 go 1.21
 
