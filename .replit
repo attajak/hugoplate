@@ -1,22 +1,22 @@
-modules = ["nodejs-20:v8-20230920-bd784b9"]
-hidden = [".config", "package-lock.json"]
+entrypoint = "README.md"
+modules = ["nodejs-20", "go-1.21"]
+hidden = [".config"]
 run = "npm run dev"
 
 [gitHubImport]
-requiredFiles = [".replit", "replit.nix", "package.json", "package-lock.json"]
+requiredFiles = [".replit", "replit.nix", "package.json", "package-lock.json", "go.mod", "go.sum"]
 
 [nix]
-channel = "stable-23_11"
+channel = "stable-24_05"
 
 [unitTest]
 language = "nodejs"
 
 [deployment]
-run = ["sh", "-c", "npm run dev"]
+run = ["sh", "-c", "npm run build"]
 deploymentTarget = "cloudrun"
 ignorePorts = false
 
 [[ports]]
 localPort = 1313
 externalPort = 80
-exposeLocalhost = true
