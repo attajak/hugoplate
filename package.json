@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "zeon.studio",
   "scripts": {
-    "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"hugo server\"",
+    "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"hugo server -D -E -F -M -N -O --disableFastRender --bind 0.0.0.0 -b http://localhost --logLevel info\"",
     "build": "node scripts/themeGenerator.js && hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic",
     "preview": "node scripts/themeGenerator.js && hugo server --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --watch --forceSyncStatic -e production --minify",
     "dev:example": "concurrently \"node scripts/themeGenerator.js --watch\" \"hugo server -s exampleSite\"",

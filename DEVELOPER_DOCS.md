@@ -46,11 +46,11 @@ File: `exampleSite/data/theme.json`
         "light": "#222222",
         "dark": "#fff"
       },
-        "text_color": {
-          "text": "#B4AFB6",
-          "text_dark": "#fff",
-          "text_light": "#B4AFB6"
-        }
+      "text_color": {
+        "text": "#B4AFB6",
+        "text_dark": "#fff",
+        "text_light": "#B4AFB6"
+      }
     }
   },
   "fonts": {
@@ -102,13 +102,13 @@ File: `exampleSite/data/theme.json`
 
 Location: `exampleSite/hugo.toml` and `exampleSite/config/_default/`
 
-| File | Purpose |
-|------|---------|
-| `hugo.toml` | Site core settings (baseURL, outputs, pagination, modules, imaging, markup). |
-| `params.toml` | Theme/runtime parameters (logos, switches, search, metadata, UI feature toggles). |
-| `menus.en.toml` | Main & footer navigation (English). |
-| `languages.toml` | Multilingual language definitions. |
-| `module.toml` | Hugo module imports (theme + feature modules). |
+| File             | Purpose                                                                           |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `hugo.toml`      | Site core settings (baseURL, outputs, pagination, modules, imaging, markup).      |
+| `params.toml`    | Theme/runtime parameters (logos, switches, search, metadata, UI feature toggles). |
+| `menus.en.toml`  | Main & footer navigation (English).                                               |
+| `languages.toml` | Multilingual language definitions.                                                |
+| `module.toml`    | Hugo module imports (theme + feature modules).                                    |
 
 ### 3.1 Critical Keys (`hugo.toml`)
 
@@ -213,7 +213,7 @@ Block pattern example:
 
 ```html
 {{ define "main" }}
-  <!-- page-specific markup -->
+<!-- page-specific markup -->
 {{ end }}
 ```
 
@@ -223,11 +223,9 @@ Block pattern example:
 1. Insert block into `layouts/index.html`:
 
 ```html
-{{ with site.GetPage "sections/your-section" }}
-  {{ if .Params.enable }}
-    <!-- custom markup using .Params fields -->
-  {{ end }}
-{{ end }}
+{{ with site.GetPage "sections/your-section" }} {{ if .Params.enable }}
+<!-- custom markup using .Params fields -->
+{{ end }} {{ end }}
 ```
 
 1. Reference images via `partial "image"` for responsive processing.
@@ -306,14 +304,14 @@ Font scale or base changes propagate automatically if the plugin consumes `font_
 
 ## 13. Troubleshooting
 
-| Issue | Likely Cause | Fix |
-|-------|--------------|-----|
-| Style changes not visible | Hugo cache | Run `hugo server --ignoreCache` or delete `resources/_gen`. |
-| Font not loading | Wrong Google Fonts syntax | Use `Family:wght@400;600;700` without spaces. |
-| New color missing in classes | Tailwind plugin not updated | Edit `tw-theme.js`, restart build. |
-| Dark mode mismatch | Missing `.dark` or tokens not adjusted | Ensure `theme_switcher` true or set `theme_default = "dark"` and update `darkmode` colors. |
-| 404 on image | Incorrect path or not processed | Verify original file exists & path relative to site root. |
-| Search not indexing | Section not included | Add section to `include_sections` in `[search]` params. |
+| Issue                        | Likely Cause                           | Fix                                                                                        |
+| ---------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Style changes not visible    | Hugo cache                             | Run `hugo server --ignoreCache` or delete `resources/_gen`.                                |
+| Font not loading             | Wrong Google Fonts syntax              | Use `Family:wght@400;600;700` without spaces.                                              |
+| New color missing in classes | Tailwind plugin not updated            | Edit `tw-theme.js`, restart build.                                                         |
+| Dark mode mismatch           | Missing `.dark` or tokens not adjusted | Ensure `theme_switcher` true or set `theme_default = "dark"` and update `darkmode` colors. |
+| 404 on image                 | Incorrect path or not processed        | Verify original file exists & path relative to site root.                                  |
+| Search not indexing          | Section not included                   | Add section to `include_sections` in `[search]` params.                                    |
 
 ---
 

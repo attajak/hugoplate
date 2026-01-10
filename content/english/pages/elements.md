@@ -186,7 +186,7 @@ s = "Python syntax highlighting"
 print s
 ```
 
-```c  { linenos=true }
+```c { linenos=true }
 #include <stdio.h>
 
 int main(void)
