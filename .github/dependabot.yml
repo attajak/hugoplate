@@ -11,13 +11,13 @@ updates:
       interval: "weekly"
     assignees:
       - "attajak"
-  - package-ecosystem: "npm​"
+  - package-ecosystem: "npm"
     directory: "/"
     scbedule:
       interval: "weekly"
     assignees:
       - "attajak"
-  - package-ecosystem: "github-actions​"
+  - package-ecosystem: "github-actions"
     directory: "/"
     scbedule:
       interval: "weekly"
